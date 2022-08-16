@@ -1,18 +1,9 @@
--- vim.api.nvim_set_keymap("n", ";", "l", { noremap = true })
--- vim.api.nvim_set_keymap("n", "l", "k", { noremap = true })
--- vim.api.nvim_set_keymap("n", "k", "j", { noremap = true })
--- vim.api.nvim_set_keymap("n", "j", "h", { noremap = true })
--- vim.api.nvim_set_keymap("v", ";", "l", { noremap = true })
--- vim.api.nvim_set_keymap("v", "l", "k", { noremap = true })
--- vim.api.nvim_set_keymap("v", "k", "j", { noremap = true })
--- vim.api.nvim_set_keymap("v", "j", "h", { noremap = true })
---
 local config = {
 
 	-- Configure AstroNvim updates
 	updater = {
 		remote = "origin", -- remote to use
-		channel = "nightly", -- "stable" or "nightly"
+		channel = "stable", -- "stable" or "nightly"
 		version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
 		branch = "main", -- branch name (NIGHTLY ONLY)
 		commit = nil, -- commit hash (NIGHTLY ONLY)
@@ -98,6 +89,9 @@ local config = {
 			{ "andweeb/presence.nvim" },
 			{ "terryma/vim-multiple-cursors" },
 			{ "github/copilot.vim" },
+			{ "rust-lang/rust.vim" },
+			{ "mattn/webapi-vim" },
+			-- { "arcticicestudio/nord-vim" },
 			-- { "williamboman/mason.nvim" },
 			-- {"ckipp01/stylua-nvim", run = "cargo install stylua"},
 			-- {
@@ -183,9 +177,10 @@ local config = {
 		-- easily add or disable built in mappings added during LSP attaching
 		mappings = {
 			n = {
-				-- ["<leader>lf"] = false -- disable formatting keymap
+				-- ["<leader>tt"] = false -- disable formatting keymap
 			},
 		},
+		-- },
 		-- add to the server on_attach function
 		-- on_attach = function(client, bufnr)
 		-- end,
@@ -238,6 +233,8 @@ local config = {
 			["k"] = { "j", desc = "remaps for home row" },
 			["j"] = { "h", desc = "remaps for home row" },
 			["l"] = { "k", desc = "remaps for home row" },
+
+			-- ["<leader>tt"] = {"<cmd>ToggleTerm btop <cr>", desc = "ToggleTerm btop"},
 		},
 		t = {
 			-- setting a mapping to false will disable it
